@@ -1,0 +1,36 @@
+h1 {
+    margin-bottom: 30px;
+    font-size: 60px;
+    color: blue;
+    text-align: center;
+    text-decoration: overline;
+    background-color: papayawhip;
+}
+
+h2 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 45px;
+    text-align: right;   
+}
+
+p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 35px;
+    text-align: left;
+    color: green;
+    background-color: dimgrey
+}
+
+ul {
+    text-align: center;
+    font-size: 30px;
+    border-style: groove;
+    border-width: 10px;
+}
+
+li {
+    text-align: center;
+    color: purple;
+}
