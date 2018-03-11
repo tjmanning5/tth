@@ -1,0 +1,33 @@
+<h1>Day Planner</h1>
+
+<ul>
+  {{#each plans}}
+    <li>
+      <p>
+        {{this.id}}. {{this.plan}}
+				<a href="/delete/{{this.id}}" class="btn btn-danger">DELETE</a>
+      </p>
+    </li>
+  {{/each}}
+</ul>
+
+<h2>Create a Plan</h2>
+<form method="POST" action="/" class="button-size">
+	<textarea type="text" name="plan"></textarea>
+	<button type="submit">Save Plan!</button>
+</form>
+
+<h2>Update a Plan</h2>
+<form action="/update" method="POST" class="button-size">
+  <input type="text" name="id" placeholder="id">
+	<textarea type="text" name="plan" placeholder="plan"></textarea>
+	<button type="submit">Update Plan!</button>
+</form>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

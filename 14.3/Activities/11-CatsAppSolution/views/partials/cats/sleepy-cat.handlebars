@@ -1,0 +1,6 @@
+<form action="/{{this.id}}?_method=PUT" method="POST">
+	<input type="hidden"
+				 name="sleepy"
+				 value="{{#if this.sleepy}}false{{else}}true{{/if}} ">
+	<button class="btn btn-primary"  type="submit">{{#if this.sleepy}}Wake Up{{else}}Nap Time{{/if}}</button>
+</form>

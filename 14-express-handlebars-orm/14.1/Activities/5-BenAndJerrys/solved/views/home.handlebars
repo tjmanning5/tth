@@ -1,0 +1,11 @@
+<p>Please select an option:</p>
+<ul>
+	<li><a href="/icecreams">View all Icecreams</a></li>
+	<li>View Icecream by Flavor
+		<ul>
+		{{#each ics}}
+			<li><a href="/icecream/{{name}}">{{name}}</a></p>
+		{{/each}}
+		</ul>
+	</li>
+</ul>

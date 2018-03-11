@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"
+					language="javascript"></script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="html"></div>
+</div>
+<div id="second" style="display: none;"><h2>I also say Hello world!</h2></div>
+<button id="toggle" type="submit">Toggle</button>
+<script>
+    var vanilla = {
+        iceCreamFlavors: ['Vanilla', 'Pistachio', 'Rocky Road',
+            'Chunkey Monkey', 'Mint Chocolate Chip', 'Cherry Garcia'],
+        getFlavor      : function() {
+            return this.iceCreamFlavors[this.getRandomIndex()];
+        },
+        getRandomIndex : function() {
+            return Math.floor(Math.random() * this.iceCreamFlavors.length);
+        }
+    };
+
+    jQuery(function($) {
+        $("#html").html(
+            '<h1>' +
+						vanilla.getFlavor() + '<br/>' +
+						vanilla.getFlavor() + '<br/>' +
+						vanilla.getFlavor() + '<br/>' +
+						vanilla.getFlavor() + '<br/>' +
+						vanilla.getFlavor() +``
+						'</h1>');
+        $("#toggle").on("click", function(e) {
+            console.log('button click type: ', $(this).attr('type'));
+            e.preventDefault();
+            $("#html").fadeToggle(function() {
+                $("#second").fadeToggle();
+            });
+        });
+        //document.getElementById('html').innerHTML = 'Hello World';
+    });
+</script>
+</body>
+</html>

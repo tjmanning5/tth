@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Basic Javascript Dump</title>
+</head>
+  <body>
+    <div id="meet-you"></div>
+    <div id="empty-div"></div>
+
+    <script type="text/javascript">
+
+      var targetDiv = document.getElementById("empty-div");
+
+      targetDiv.innerHTML = "Hello friends!";
+
+      // In this example, we instead create a new div called "newDiv".
+      //<h1/>
+      var newDiv = document.createElement("h1");
+
+      // We then give this newDiv the text "A pleasure to meet you!".
+      //<h1>A pleasure to meet you!</h1>
+      newDiv.innerHTML = "A pleasure to meet you!";
+
+      // Now we use the ".appendChild" method to combine the two divs together on the page.
+      document.getElementById('meet-you').appendChild(newDiv);
+
+    </script>
+
+  </body>
+</html>

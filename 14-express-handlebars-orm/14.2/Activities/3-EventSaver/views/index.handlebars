@@ -1,0 +1,23 @@
+<div class="hero">
+
+	<h1>Event Saver</h1>
+
+	<h3>Save events that have happened to you</h3>
+</div>
+<div class="well">
+
+	<ul>
+		{{#each events}}
+			<li>
+				<p>ID: {{this.id}}</p>
+				<p>Event: {{this.event}}</p>
+			</li>
+		{{/each}}
+	</ul>
+</div>
+
+<form action="/" method="POST">
+	<textarea type="text" name="event"></textarea>
+
+	<button type="submit">Submit</button>
+</form>

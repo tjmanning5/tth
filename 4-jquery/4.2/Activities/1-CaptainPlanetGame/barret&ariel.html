@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Captain Planet: The Game</title>
+
+	<!-- Bootstrap File -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+
+</head>
+<body>
+
+<!-- Overall Bootstrap Grid -->
+<div class="container">
+
+	<!-- Jumbotron with Title -->
+	<div class="jumbotron">
+		<h1 class="text-center"><strong>Captain Planet: The Game!</strong></h1>
+		<h4 class="text-center">Rated M for Mature</h4>
+		<hr>
+		<div class="text-center">
+			<button class="btn btn-warning btn-xs theme-button"><span class="glyphicon glyphicon-music"></span> Play Theme!</button>
+			<button class="btn btn-default btn-xs pause-button"><span class="glyphicon glyphicon-pause"></span> Pause Song</button>
+		</div>
+
+	</div>
+	<div class="row">
+
+		<!-- Left Panel -->
+		<div class="col-lg-6">
+
+			<!-- Controls (Superpower Grow/Shrink)-->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Superpowers - Change Sizes!</h3>
+				</div>
+				<div class="panel-body">
+					<div class="text-center">
+						<button class="btn btn-default btn-lg normal-button"><span class="glyphicon glyphicon-ok-sign"></span> Normal</button>
+						<button class="btn btn-primary btn-lg grow-button"><span class="glyphicon glyphicon-plus-sign"></span> Grow</button>
+						<button class="btn btn-danger btn-lg shrink-button"><span class="glyphicon glyphicon-minus-sign"></span> Shrink</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Controls (Superpower Visibility) -->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Superpowers - Invisiblity!</h3>
+				</div>
+				<div class="panel-body">
+					<div class="text-center">
+						<button class="btn btn-default btn-lg vis-button"><span class="glyphicon glyphicon-eye-open"></span> Visible</button>
+						<button class="btn btn-info btn-lg invis-button"><span class="glyphicon glyphicon-eye-close"></span> Invisible</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Controls (Superpower Move Controls) -->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Move Controls</h3>
+				</div>
+				<div class="panel-body">
+					<div class="text-center">
+						<button class="btn btn-default btn-lg up-button"><span class="glyphicon glyphicon-arrow-up"></span></button>
+					</div>
+					<div class="text-center">
+						<button class="btn btn-default btn-lg left-button"><span class="glyphicon glyphicon-arrow-left"></span></button>
+						<button class="btn btn-default btn-lg down-button"><span class="glyphicon glyphicon-arrow-down"></span></button>
+						<button class="btn btn-default btn-lg right-button"><span class="glyphicon glyphicon-arrow-right"></span></button>
+					</div>
+					<br>
+					<div class="text-center">
+						<button class="btn btn-default btn-lg back-button"><span class="glyphicon glyphicon-comment"></span> Go Planet!</button>
+					</div>
+					<div class="text-center">
+						<button class="btn btn-default btn-lg spin-button"><span class="glyphicon glyphicon-comment"></span> Spin!</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Right Panel (Captain Planet Hero)-->
+		<div class="col-lg-6">
+
+			<!-- Captain Planet Image -->
+			<img src="http://screencrush.com/442/files/2013/06/captain-planet-01.jpg" alt="" class="img captain-planet" style="position:absolute; top:50px; left: 80px; z-index: -20; height: 300px">
+		</div>
+	</div>
+</div>
+
+<script>
+
+    // Javascript function that wraps everything
+    $(document).ready(function() {
+
+        // Gets Link for Theme Song
+        var audioElement = document.createElement("audio");
+        audioElement.setAttribute("src", "Assets/captainplanet24.mp3");
+
+        // Theme Button
+        $(".theme-button").on("click", function() {
+            audioElement.play();
+        });
+
+        $(".pause-button").on("click", function() {
+            audioElement.pause();
+        });
+
+        // Size Buttons
+        $(".normal-button").on("click", function() {
+            $(".captain-planet").animate({ height: "300px" });
+        });
+
+        $(".grow-button").on("click", function() {
+            $(".captain-planet").animate({ height: "500px" });
+        });
+
+        $(".shrink-button").on("click", function() {
+            $(".captain-planet").animate({ height: "100px" });
+        });
+
+        // Visibility Buttons
+        $(".vis-button").on("click", function() {
+            $(".captain-planet").animate({ opacity: "1" });
+        });
+
+        $(".invis-button").on("click", function() {
+            $(".captain-planet").animate({ opacity: "0.05" });
+        });
+
+        // Move Buttons
+        $(".up-button").on("click", function() {
+            $(".captain-planet").animate({ top: "-=200px" }, "normal");
+        });
+
+        $(".down-button").on("click", function() {
+            $(".captain-planet").animate({ top: "+=200px" }, "normal");
+        });
+
+        $(".left-button").on("click", function() {
+            $(".captain-planet").animate({ left: "-=200px" }, "normal");
+        });
+
+        $(".right-button").on("click", function() {
+            $(".captain-planet").animate({ left: "+=200px" }, "normal");
+        });
+
+        $(".back-button").on("click", function() {
+            $(".captain-planet").animate({ top: "50px", left: "80px" }, "fast");
+        });
+
+        $(".spin-button").on("click", function() {
+        });
+        $(".captain-planet").rotate({count: 14, duration: .6, easing: 'ease-out'});
+
+        // Move Buttons (Keyboard Down)
+        $(document).keyup(function(e) {
+            switch (e.which) {
+                case 40:
+                    $(".captain-planet").animate({ top: "+=200px" }, "normal");
+            }
+        });
+
+        // Move Buttons (Keyboard Right)
+        $(document).keyup(function(e) {
+            switch (e.which) {
+                case 39:
+                    $(".captain-planet").animate({ left: "+=200px" }, "normal");
+            }
+        });
+
+        // Move Buttons (Keyboard Up)
+        $(document).keyup(function(e) {
+            switch (e.which) {
+                case 38:
+                    $(".captain-planet").animate({ top: "-=200px" }, "normal");
+            }
+        });
+
+        // Move Buttons (Keyboard Left)
+        $(document).keyup(function(e) {
+            switch (e.which) {
+                case 37:
+                    $(".captain-planet").animate({ left: "-=200px" }, "normal");
+            }
+        });
+    });
+
+    $.fn.rotate=function(options) {
+        var $this=$(this), prefixes, opts, wait4css=0;
+        prefixes=['-Webkit-', '-Moz-', '-O-', '-ms-', ''];
+        opts=$.extend({
+            startDeg: false,
+            endDeg: 360,
+            duration: 1,
+            count: 1,
+            easing: 'linear',
+            animate: {},
+            forceJS: false
+        }, options);
+
+        function supports(prop) {
+            var can=false, style=document.createElement('div').style;
+            $.each(prefixes, function(i, prefix) {
+                if (style[prefix.replace(/\-/g, '')+prop]==='') {
+                    can=true;
+                }
+            });
+            return can;
+        }
+
+        function prefixed(prop, value) {
+            var css={};
+            if (!supports.transform) {
+                return css;
+            }
+            $.each(prefixes, function(i, prefix) {
+                css[prefix.toLowerCase()+prop]=value || '';
+            });
+            return css;
+        }
+
+        function generateFilter(deg) {
+            var rot, cos, sin, matrix;
+            if (supports.transform) {
+                return '';
+            }
+            rot=deg>=0 ? Math.PI*deg/180 : Math.PI*(360+deg)/180;
+            cos=Math.cos(rot);
+            sin=Math.sin(rot);
+            matrix='M11='+cos+',M12='+(-sin)+',M21='+sin+',M22='+cos+',SizingMethod="auto expand"';
+            return 'progid:DXImageTransform.Microsoft.Matrix('+matrix+')';
+        }
+
+        supports.transform=supports('Transform');
+        supports.transition=supports('Transition');
+
+        opts.endDeg*=opts.count;
+        opts.duration*=opts.count;
+
+        if (supports.transition && !opts.forceJS) { // CSS-Transition
+            if ((/Firefox/).test(navigator.userAgent)) {
+                wait4css=(!options||!options.animate)&&(opts.startDeg===false||opts.startDeg>=0)?0:25;
+            }
+            $this.queue(function(next) {
+                if (opts.startDeg!==false) {
+                    $this.css(prefixed('transform', 'rotate('+opts.startDeg+'deg)'));
+                }
+                setTimeout(function() {
+                    $this
+                        .css(prefixed('transition', 'all '+opts.duration+'s '+opts.easing))
+                        .css(prefixed('transform', 'rotate('+opts.endDeg+'deg)'))
+                        .css(opts.animate);
+                }, wait4css);
+
+                setTimeout(function() {
+                    $this.css(prefixed('transition'));
+                    if (!opts.persist) {
+                        $this.css(prefixed('transform'));
+                    }
+                    next();
+                }, (opts.duration*1000)-wait4css);
+            });
+
+        } else { // JavaScript-Animation + filter
+            if (opts.startDeg===false) {
+                opts.startDeg=$this.data('rotated') || 0;
+            }
+            opts.animate.perc=100;
+
+            $this.animate(opts.animate, {
+                duration: opts.duration*1000,
+                easing: $.easing[opts.easing] ? opts.easing : '',
+                step: function(perc, fx) {
+                    var deg;
+                    if (fx.prop==='perc') {
+                        deg=opts.startDeg+(opts.endDeg-opts.startDeg)*perc/100;
+                        $this
+                            .css(prefixed('transform', 'rotate('+deg+'deg)'))
+                            .css('filter', generateFilter(deg));
+                    }
+                },
+                complete: function() {
+                    if (opts.persist) {
+                        while (opts.endDeg>=360) {
+                            opts.endDeg-=360;
+                        }
+                    } else {
+                        opts.endDeg=0;
+                        $this.css(prefixed('transform'));
+                    }
+                    $this.css('perc', 0).data('rotated', opts.endDeg);
+                }
+            });
+        }
+
+        return $this;
+    };
+
+</script>
+
+</body>
+</html>

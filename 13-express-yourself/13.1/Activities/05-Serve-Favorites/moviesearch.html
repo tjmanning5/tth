@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Movie Search</title>
+</head>
+<body>
+
+<input type="text" name="movie"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.1/jquery.min.js"
+				language="javascript"></script>
+<script>
+    var wait;
+    jQuery(function($) {
+        $("[name=movie]").on('keyup', function(e) {
+            var movie = $(this).val();
+            console.log('Entered', movie);
+            clearTimeout(wait);
+            wait = setTimeout(function() {
+                $.get('/searchmovies?' + movie, function(data) {
+                    console.log('data', data);
+                    var html = '';
+                    html += '<h1>' + data.Title + '</h1>';
+                    html += '<h2>' + data.Plot + '</h2>';
+                    html += '<img src="' + data.Poster + '"/>';
+                    $("#movie").html(html);
+                })
+            }, 1000);
+        });
+    })
+</script>
+<div id="movie"></div>
+</body>
+</html>

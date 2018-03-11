@@ -1,0 +1,20 @@
+<style media="screen">
+  li {
+    height : 100px;
+    width: 100px;
+    color: red;
+    background-color: purple;
+    margin-bottom: 30px;
+  }
+</style>
+
+{{#if eater}}
+	<h1>Lunches for {{eater}}</h1>
+{{else}}
+	<h1>Lunches for Today</h1>
+{{/if}}
+<ul>
+{{#each foods }}
+  <li>{{{lunch}}}</li>
+{{/each}}
+</ul>
